@@ -3,9 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.7.3",
+    "csv": "^5.1.1",
     "react": "^16.8.3",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-bootstrap-table-next": "^2.2.0",
+    "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react-dropzone": "^9.0.0",
+    "react-flip-move": "^3.0.3",
+    "react-rotating-text": "^1.2.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.5",
+    "react-tabs": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
