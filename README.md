@@ -4,7 +4,7 @@ Quote prioritization for Underwriters
 
 Concept:
 
-Underwriters are well-familiar with parsing through CSV's and attempting to extract the most promising quotes - but often times there is large variance and opportunities.
+Underwriters are well-familiar with parsing through CSV's and attempting to extract the most promising quotes - but often times there is large variance and opportunities. Insurlytics analyzes collections of quotes to determine and float the most promosing quotes to the top of the underwriter's attention list.
 
 ### How to run
 From the home directory of the project.
