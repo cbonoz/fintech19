@@ -1,3 +1,5 @@
+// import { zScore } from 'simple-statistics'
+
 module.exports.QUOTE_COLUMNS = [
     'maxProfit',
     'Profitability',
@@ -59,4 +61,13 @@ module.exports.assignColor = function(value, minValue, maxValue) {
     } else {
         return rgbToHex(255 - Math.floor(r * ((255 - 230) / 240.0)), 240 - r, 240 - r)
     }
+}
+
+module.exports.assignNormalizedColor = function(n) {
+    // const n = zScore(value, mean, sd)
+    const R = Math.floor((255 * (100 - n)) / 100 )
+    const G = Math.floor((255 * n) / 100)
+    const B = 0
+
+    return rgbToHex(R, G, B)
 }

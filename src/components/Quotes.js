@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
-import { Modal, Button, ButtonToolbar, FormControl, InputGroup } from 'react-bootstrap'
+import { Checkbox, Form, OverlayTrigger, Tooltip, Modal, Button, ButtonToolbar, FormControl, InputGroup } from 'react-bootstrap'
 import { getQuoteColumnHeader, getRecommendation } from '../helper';
 import { Type } from 'react-bootstrap-table2-editor';
 import classNames from 'classnames'
@@ -11,7 +11,8 @@ class Quotes extends Component {
     state = {
         show: false,
         currentQuote: {},
-        quoteRecommendation: ''
+        quoteRecommendation: '',
+        quoteChecked: false,
     }
 
     constructor(props) {
@@ -40,9 +41,17 @@ class Quotes extends Component {
         this.setState({ show: true });
     }
 
+    toggleChange = () => {
+        const nextState = !this.state.quoteChecked
+        console.log('toggle', nextState)
+        this.setState({
+            quoteChecked: nextState
+        });
+    }
+
     render() {
         const { header, quotes, minValue, maxValue } = this.props
-        const { currentQuote, quoteRecommendation, show } = this.state
+        const { currentQuote, quoteRecommendation, show, quoteChecked } = this.state
         let columns = header.map(h => {
             return {
                 dataField: h,
@@ -108,16 +117,30 @@ class Quotes extends Component {
                             }
                         </ul>
 
-                        <p>To submit a quote request back to Broker <b>{currentQuote['BrokerID']}</b>, enter the desired quote amount below and hit 'Submit'</p>
-                        <InputGroup className="mb-3">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text>$</InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl aria-label="Quote Amount" />
-                            <InputGroup.Append>
-                                <InputGroup.Text>.00</InputGroup.Text>
-                            </InputGroup.Append>
-                        </InputGroup>
+                        <input
+                            type='checkbox'
+                            label="Generate Quote"
+                            checked={this.state.quoteChecked}
+                            onChange={this.toggleChange}
+                        />&nbsp;Generate Quote
+
+                        <br />
+
+                        {quoteChecked && <div>
+                            <p>To submit a quote request back to Broker <b>{currentQuote['BrokerID']}</b>, enter the desired quote amount below and hit 'Submit'</p>
+                            <InputGroup className="mb-3">
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text>$</InputGroup.Text>
+                                </InputGroup.Prepend>
+                                <FormControl aria-label="Quote Amount" />
+                                <InputGroup.Append>
+                                    <InputGroup.Text>.00</InputGroup.Text>
+                                </InputGroup.Append>
+                            </InputGroup>
+
+                        </div>}
+
+                        <hr />
 
                         {quoteRecommendation && <p className={classNames({
                             'recommentation-text': true,
@@ -126,16 +149,53 @@ class Quotes extends Component {
                         })}>
                             {quoteRecommendation}
                         </p>}
+
+
                         <ButtonToolbar className='quote-bar'>
-                        <Button className='quote-button' variant="danger" onClick={this.handleClose}>
-                            Decline
-                        </Button>
-                        <Button className='quote-button' variant="info" onClick={this.handleClose}>
-                            Submit
-                        </Button>
-                        <Button className='quote-button' variant="success" onClick={this.handleClose}>
-                            Preapprove
-                        </Button>
+
+
+
+                            {quoteChecked && <OverlayTrigger
+                                placement='top'
+                                overlay={
+                                    <Tooltip>
+                                        <b>Submit</b> the quote and send a notification to the broker.
+                                    </Tooltip>
+                                }>
+                                <Button className='quote-button' variant="info" onClick={this.handleClose}>
+                                    Submit Quote
+                                </Button>
+                            </OverlayTrigger>}
+
+                            {!quoteChecked && <div>
+
+                                <OverlayTrigger
+                                    placement='top'
+                                    overlay={
+                                        <Tooltip>
+                                            <b>Decline</b> the quote and send a notification to the broker.
+                                    </Tooltip>
+                                    }>
+                                    <Button className='quote-button' variant="danger" onClick={this.handleClose}>
+                                        Decline
+                                </Button>
+                                </OverlayTrigger>
+
+                                {(quoteRecommendation.indexOf('top') !== -1) &&
+                                    <OverlayTrigger
+                                        placement='top'
+                                        overlay={
+                                            <Tooltip>
+                                                <b>Preapprove</b> the quote and send a notification to the broker and the customer.
+                                        </Tooltip>
+                                        }>
+                                        <Button className='quote-button' variant="success" onClick={this.handleClose}>
+                                            Preapprove
+                                    </Button>
+
+                                    </OverlayTrigger>}
+
+                            </div>}
                         </ButtonToolbar>
 
                     </Modal.Body>
