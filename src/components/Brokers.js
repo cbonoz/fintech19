@@ -44,7 +44,7 @@ class Brokers extends Component {
         return (
             <div className='data-row'>
             <p className="data-table-description">
-                This table shows the relative performance of brokers being attached to profit-generating policies that were successfully bound. 
+                This table shows the relative performance of brokers being attached to profit-generating submissions that were successfully bound. 
                 A higher score indicates the broker is associated with a higher number of profitable policy transactions, while a lower number indicates the broker is underperforming or more associated with lower profitability quotes.
             </p>
 

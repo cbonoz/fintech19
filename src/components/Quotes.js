@@ -78,6 +78,7 @@ class Quotes extends Component {
 
         const rowEvents = {
             onClick: (e, row, rowIndex) => {
+                const { minValue, maxValue } = this.props
                 console.log('clicked', row)
                 const quoteRecommendation = getRecommendation(row.maxProfit, minValue, maxValue)
                 this.setState({ currentQuote: row, quoteRecommendation, show: true })
@@ -159,7 +160,7 @@ class Quotes extends Component {
                                 placement='top'
                                 overlay={
                                     <Tooltip>
-                                        <b>Submit</b> the quote and send a notification to the broker.
+                                        <b>Submit</b> the request and send a notification to the broker.
                                     </Tooltip>
                                 }>
                                 <Button className='quote-button' variant="info" onClick={this.handleClose}>
@@ -173,7 +174,7 @@ class Quotes extends Component {
                                     placement='top'
                                     overlay={
                                         <Tooltip>
-                                            <b>Decline</b> the quote and send a notification to the broker.
+                                            <b>Decline</b> the request and send a notification to the broker.
                                     </Tooltip>
                                     }>
                                     <Button className='quote-button' variant="danger" onClick={this.handleClose}>
@@ -186,7 +187,7 @@ class Quotes extends Component {
                                         placement='top'
                                         overlay={
                                             <Tooltip>
-                                                <b>Preapprove</b> the quote and send a notification to the broker and the customer.
+                                                <b>Preapprove</b> the request and send a notification to both the broker and the customer.
                                         </Tooltip>
                                         }>
                                         <Button className='quote-button' variant="success" onClick={this.handleClose}>

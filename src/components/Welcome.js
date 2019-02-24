@@ -7,8 +7,8 @@ import full_logo from './../assets/full_logo.png'
 
 const ROTATOR_WORDS = [
     'Brokers',
-    'Quotes',
     'Opportunities',
+    'Quote Submissions',
     'Customers',
 ]
 
