@@ -6,6 +6,12 @@ Concept:
 
 Underwriters are well-familiar with parsing through CSV's and attempting to extract the most promising quotes - but often times there is large variance and opportunities.
 
+### How to run
+From the home directory of the project.
+<pre>
+    yarn
+    yarn start
+</pre>
 
 
 ### TODO
