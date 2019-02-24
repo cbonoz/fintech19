@@ -601,6 +601,10 @@ td {
   margin-bottom: 15px;
 }
 
+.chart-section {
+  padding: 25px;
+}
+
 .quote-text {
   padding-top: 20px;
   margin-top: 20px;

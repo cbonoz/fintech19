@@ -10,6 +10,7 @@
     "react-bootstrap-table-next": "^2.2.0",
     "react-bootstrap-table2-editor": "^1.2.2",
     "react-chartjs-2": "^2.7.4",
+    "react-chartkick": "^0.3.0",
     "react-dom": "^16.8.3",
     "react-dropzone": "^9.0.0",
     "react-rotating-text": "^1.2.1",
