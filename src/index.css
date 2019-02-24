@@ -225,13 +225,20 @@ h1, h2 {
   margin-bottom: 25px;
 }
 
+.data-table-description {
+  font-size: 16px;
+}
+
 .sort-button {
   padding: 10px;
-  margin: 5px;
 }
 
 .back-section {
-  height: 100px;
+  height: 125px;
+}
+
+.tab-section {
+  margin-top: 20px;
 }
 
 .text-brand p {
@@ -262,7 +269,7 @@ h1, h2 {
 
 .main-panel {
   margin-top: 20px;
-  min-height: 1000px;
+  min-height: 1200px;
 }
 
 .no-data-message {
@@ -325,6 +332,27 @@ h1, h2 {
   border-bottom: 1px solid black;
 }
 
+.white {
+  color: white;
+}
+
+.quote-data-row {
+  cursor: pointer;
+}
+
+.report-image {
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.green {
+  color: #42b983;
+}
+
+.sort-bar {
+  margin-bottom: 10px;
+}
+
 .selected {
   color: #dab07e !important;
 }
@@ -352,19 +380,18 @@ h1, h2 {
   background: #B993D6;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #8CA6DB, #B993D6);
-  height: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat:no-repeat;
+}
+
+.drop-section {
+  padding-bottom: 50px;
+  border-bottom: 5px solid #B993D6;  /* fallback for old browsers */
 }
 
 .home-section {
   padding-top: 50px;
   margin-bottom: 10px;
   align-items: center;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 

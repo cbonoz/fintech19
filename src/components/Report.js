@@ -6,7 +6,7 @@ class Report extends Component {
         
         return (
             <div>
-                
+                <h5>Coming Soon</h5>
             </div>
         );
     }

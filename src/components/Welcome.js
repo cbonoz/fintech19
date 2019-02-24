@@ -17,7 +17,7 @@ class Welcome extends Component {
         return (
             <div className="home-content">
                 <div className="center home-hero">
-                    <img src={full_logo} alt="Salesclub logo" className="clear banner-image" />
+                    <img src={full_logo} alt="Insurlytics logo" className="clear banner-image" />
                     <br />
                     <span className="header-font clear">
                         {/* Data Powered Underwriting */}

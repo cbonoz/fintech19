@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import { assignColor } from '../helper';
-import { MIN_BROKER, MAX_BROKER } from '../data';
-
-const rowStyle2 = (row, rowIndex) => {
-    const style = {};
-    style.backgroundColor = row.color || '#fff'
-    style.fontWeight = 'bold';
-    style.color = 'black';
-  
-    return style;
-  };
+import data from '../data';
 
 class Brokers extends Component {
+
+    componentDidMount() {
+        let { brokers, header } = this.props
+        console.log('brokers', brokers)
+        console.log(data.MIN_BROKER, data.MAX_BROKER)
+    }
+
     render() {
         let { brokers, header } = this.props
         brokers = brokers.map(b => {
-            b.color = assignColor(b.y, MIN_BROKER, MAX_BROKER)
+            b.color = assignColor(b.y, data.MIN_BROKER, data.MAX_BROKER)
             return b
         })
         const columns = header.map(h => {
@@ -24,17 +22,37 @@ class Brokers extends Component {
             if (h === 'x') {
                 text = 'Broker ID'
             } else if (h === 'y') {
-                text = 'Coefficient'
+                text = 'Performance Coefficient'
             }
 
             return {
                 dataField: h,
+                sort: true,
                 text
             }
         })
+
+        const rowStyle = (row, rowIndex) => {
+            return {
+                backgroundColor: row.color
+            }
+        }
+
         return (
             <div className='data-row'>
-                <BootstrapTable keyField='x' data={ brokers } columns={ columns } rowStyle={ rowStyle2 } />
+            <p className="data-table-description">
+                This table shows the relative performance of brokers being attached to profit-generating policies that were successfully bound. 
+                A higher score indicates the broker is associated with a higher number of profitable policy transactions, while a lower number indicates the broker is underperforming or more associated with lower profitability quotes.
+            </p>
+
+
+                <BootstrapTable
+                    keyField='x'
+                    data={brokers}
+                    columns={columns}
+                    rowStyle={rowStyle}
+                />
+
             </div>
         );
     }

@@ -30,7 +30,6 @@ class App extends Component {
           </Navbar.Brand>
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/upload">Upload</Nav.Link>
-          <Nav.Link href="/about">About</Nav.Link>
         </Navbar>
 
         <Router>

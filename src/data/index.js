@@ -2,9 +2,11 @@ const data = [{"index":8309,"SubmissionID":165089,"Profitability":1185.1442,"Con
 module.exports.DATA = data.map(d => {
     for (let key in d) {
         let val = d[key]
-        if (typeof(val) === 'number') {
-            val = Math.round(val * 100) / 100
+        const num = parseFloat(val)
+        if (!isNaN(num)) {
+            val = Math.round(num * 100) / 100
         }
+        
         d[key] = val
     }
     return d
@@ -21,11 +23,11 @@ const brokers = [{"index":2,"x":"BRO_1009","y":-130.3893473062},{"index":3,"x":"
 
 module.exports.BROKERS = brokers
 
-const brokerMap = {}
-brokers.map(d => {
-    brokerMap[d['x']] = d
-})
-module.exports.BROKER_MAP = brokerMap
+// const brokerMap = {}
+// brokers.map(d => {
+//     brokerMap[d['x']] = d
+// })
+// module.exports.BROKER_MAP = brokerMap
 
-module.exports.MAX_BROKER = Math.max(brokers.map(b => { return b.y}))
-module.exports.MIN_BROKER = Math.min(brokers.map(b => { return b.y}))
+module.exports.MAX_BROKER = Math.max.apply(null, brokers.map(b => { return parseFloat(b['y'])}))
+module.exports.MIN_BROKER = Math.min.apply(null, brokers.map(b => { return parseFloat(b['y'])}))
