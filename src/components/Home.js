@@ -108,7 +108,7 @@ class Home extends Component {
 
             <div className='home-section'>
                 {!loading && !hasQuotes && <div className='centered'>
-                    <h3 className='upload-header'>Upload your CSV of Quotes.</h3>
+                    <h3 className='upload-header'>Upload your CSV of Quote Requests.</h3>
                     <hr />
                     <div className='drop-section'>
                         <Dropzone onDrop={this.onDrop}>
