@@ -13,7 +13,7 @@ import Brokers from './Brokers';
 
 import full_logo from '../assets/full_logo.png'
 
-const DELAY = 0
+const DELAY = 2000
 
 class Home extends Component {
 
