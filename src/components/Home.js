@@ -146,7 +146,7 @@ class Home extends Component {
                             <Tabs>
                                 <TabList>
                                     <Tab>Overview</Tab>
-                                    <Tab>Brokers</Tab>
+                                    <Tab>Broker Performance</Tab>
                                     {/* <Tab>Personal</Tab> */}
                                 </TabList>
 
