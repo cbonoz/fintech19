@@ -233,6 +233,23 @@ h1, h2 {
   padding: 10px;
 }
 
+.quote-button {
+  padding: 10px;
+  margin: 2px;
+}
+
+.recommentation-text {
+  font-size: 14px;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
 .back-section {
   height: 125px;
 }
@@ -349,7 +366,7 @@ h1, h2 {
   color: #42b983;
 }
 
-.sort-bar {
+.sort-bar, .quote-bar {
   margin-bottom: 10px;
 }
 

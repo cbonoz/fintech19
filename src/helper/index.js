@@ -22,6 +22,19 @@ module.exports.getQuoteColumnHeader = (h) => {
     return h.replace('Premium', '')
 }
 
+module.exports.getRecommendation = (value, minValue, maxValue) => {
+    const span = maxValue - minValue
+    const diff = value - minValue
+    console.log('recommendation', value, minValue, maxValue)
+    if (diff <= .10 * span) {
+        return 'Not recommended. This quote is in the bottom 10% of quotes we have seen recently, we recommend declining this quote request for now.'
+    } else if (diff >= .90 * span) {
+        return 'Wow! This quote is in the top 10% of quotes we have seen recently, we recommend pre-approving this particular quote and sending it immediately back to the broker.'
+    }
+
+    return 'The quote may be profitable, determine whether or not to accept this quote and click the appropriate option below'
+}
+
 module.exports.ORIGINAL_COLUMNS = ["SubmissionID", "Date_Received", "Date_Quoted", "Date_Bound", "BrokerID", "BrokerStar", "Product", "Industry", "HandledBy", "Region", "QuotedFlag", "DeclinedFlag", "BoundFlag", "Customer_State", "Broker_Type", "EmployeeCount", "Revenue", "QuotedPremium", "BoundPremium"]
 
 function componentToHex(c) {
